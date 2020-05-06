@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp1.MainPage"
+             Title="Twoja lista zakupów">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Grid VerticalOptions="EndAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="285"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<syncfusion:SfListView x:Name="listView"
+                      ItemsSource="{Binding Items}"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="3"
+                      SelectedItem="{Binding SelectedItem}"
+                                   AllowSwiping="True">
+                <syncfusion:SfListView.LeftSwipeTemplate>
+                    <DataTemplate x:Name="LeftSwipeTemplate">
+                        <Grid>
+                            <Grid BackgroundColor="#009EDA" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.LeftSwipeTemplate>
+                --><!--<ListView.GestureRecognizers>
+                    <SwipeGestureRecognizer  Direction="Left" Swiped="OnSwiped"/>
+                </ListView.GestureRecognizers>--><!--
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem  Text="More"/>
+                                <MenuItem  Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox IsChecked="{Binding IsChecked}" Grid.Column="0" CheckedChanged="OnCheckChanged"/>
+                                <Label FontAttributes="Bold"  Text="{Binding Number}" Margin="2" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Grid.Column="1">
+                                </Label>
+                                <Label Text="{Binding Name}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>-->
+            <ListView x:Name="listView"
+                      ItemsSource="{Binding Items}"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="3"
+                      SelectedItem="{Binding SelectedItem}"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Edytuj"
+                                          Clicked="EditItemPage"
+                                          IsDestructive="True"
+                                          CommandParameter="{Binding ID_Item}"/>
+                                <MenuItem Text="Usuń"
+                                          Clicked="DeleteClicked"
+                                          IsDestructive="True"
+                                          CommandParameter="{Binding ID_Item}"/>
+                            </ViewCell.ContextActions>
+                            <!--<SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                         <SwipeItem Text="Favorite"
+                                                BackgroundColor="LightGreen"
+                                                Invoked="OnFavoriteSwipeItemInvoked" />
+                                            <SwipeItem Text="Delete"
+                                                BackgroundColor="LightPink"
+                                                Invoked="OnDeleteSwipeItemInvoked" />    
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                            </SwipeView>-->
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTapped" NumberOfTapsRequired="2" CommandParameter="{Binding ID_Item}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!--<SwipeView>
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Favorite"
+                       BackgroundColor="LightGreen" />
+                                            <SwipeItem Text="Delete"
+                       BackgroundColor="LightPink"/>
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>-->
+                                    <StackLayout x:Name="test"  Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.ColumnSpan="3">
+                                    <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped" NumberOfTapsRequired="1"/>
+                                    </StackLayout.GestureRecognizers>-->
+                                    <CheckBox IsChecked="{Binding IsChecked}" Grid.Column="0" CheckedChanged="OnCheckChanged"/>
+                                    <Label FontAttributes="Bold"  Text="{Binding Number}" Margin="2" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  Grid.Column="1">
+                                </Label>
+                                    <Label TextDecorations="{Binding TextDec}"  Text="{Binding Name}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="2"/>
+                                </StackLayout>
+                                <!--</SwipeView>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Margin="0,0,20,0" Text="Dodaj"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="EndAndExpand"
+                Grid.Row="1"
+                Grid.Column="1"
+                Clicked="OnButtonClicked"/>
+            <Entry Margin="20,0,0,0" Placeholder="Dodaj nowy produkt"
+               Grid.Row="1"
+                Grid.Column="0"
+               Text="{Binding Text}"/>
+        </Grid>
+            
+    </StackLayout>
+
+</ContentPage>
