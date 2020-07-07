@@ -54,6 +54,7 @@ namespace MobileApp1
             BindingContext = this;
         }
 
+
         protected override async void OnAppearing()
         {
             Text = string.Empty;
@@ -133,14 +134,12 @@ namespace MobileApp1
             bool check = string.IsNullOrWhiteSpace(Text);
             if (Text != string.Empty && check == false)
             {
-
-
                 int index = Items.Count();
                 await App.Database.SaveItemsAsync(new Item
                 {
                     Number = index + 1,
                     Name = Text,
-                    IsChecked = false
+                    IsChecked = false,
                 });
 
                 Text = string.Empty;
@@ -188,6 +187,16 @@ namespace MobileApp1
             var item = Items.Where(x => x.ID_Item == id).FirstOrDefault();
 
             await Navigation.PushAsync(new NavigationPage(new EditItemPage(item)));
+        }
+
+        public async void OptionsPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new OptionsPage()));
+        }
+
+        public async void NewItemClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new NewItemPage()));
         }
 
     }

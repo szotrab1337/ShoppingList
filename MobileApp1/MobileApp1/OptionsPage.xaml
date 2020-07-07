@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp1.OptionsPage"
+             Title="Opcje">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Test"/>
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Usuń wszystko" Margin="30,10,30,0" BackgroundColor="#3399FF" TextColor="White" Clicked="DeleteAllClicked"/>
+            <Button Text="Odznacz wszystko" Margin="30,10,30,0" BackgroundColor="#3399FF" TextColor="White" Clicked="UncheckAllClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

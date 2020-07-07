@@ -12,5 +12,6 @@ namespace MobileApp1.Model
         public int Number { get; set; }
         public string Name { get; set; }
         public bool IsChecked { get; set; }
+        public double Quantity { get; set; }
     }
 }
