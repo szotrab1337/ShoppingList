@@ -12,6 +12,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Usuń wszystko" Margin="30,10,30,0" BackgroundColor="#3399FF" TextColor="White" Clicked="DeleteAllClicked"/>
+            <Button Text="Usuń kupione" Margin="30,10,30,0" BackgroundColor="#3399FF" TextColor="White" Clicked="DeleteCheckedClicked"/>
             <Button Text="Odznacz wszystko" Margin="30,10,30,0" BackgroundColor="#3399FF" TextColor="White" Clicked="UncheckAllClicked"/>
         </StackLayout>
     </ContentPage.Content>

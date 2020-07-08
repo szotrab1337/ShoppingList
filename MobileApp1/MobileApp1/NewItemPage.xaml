@@ -17,14 +17,14 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="170"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Nazwa" Grid.ColumnSpan="2" Grid.Row="0" Margin="15,5,0,0"/>
                 <Editor Placeholder="Wprowadź nazwę produktu" Margin="15,5,15,0" x:Name="eName" VerticalOptions="Start" Grid.ColumnSpan="2" Grid.Row="1"/>
                 <Label Text="Ilość" Grid.Row="2" Margin="15,10,0,-15"/>
                 <Editor HorizontalOptions="FillAndExpand" Placeholder="Wprowadź ilość" Margin="15,0,10,0" Grid.Column="0" Grid.Row="3" x:Name="eQuantity"/>
-                <Stepper x:Name="Stepp" HorizontalOptions="Center" Minimum="0.5" Maximum="1000" Increment="0.5" Grid.Column="1" Grid.Row="3" ValueChanged="OnValueChanged"/>
+                <Stepper x:Name="Stepp" HorizontalOptions="Center" Minimum="0.5" Maximum="1000" Increment="0.5" Grid.Column="1" Grid.Row="3" ValueChanged="OnValueChanged" Margin="0,0,15,0"/>
                 <Button TextColor="White" BackgroundColor="#3399FF"  Clicked="OnClick" Margin="0,30,0,0" HorizontalOptions="CenterAndExpand" WidthRequest="200" Text="Zatwierdź" Grid.Row="4" Grid.ColumnSpan="2"/>
             </Grid>
         </StackLayout>

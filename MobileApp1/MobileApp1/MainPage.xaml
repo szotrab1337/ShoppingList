@@ -47,7 +47,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="25"/>
                                     <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="300"/>
+                                    <ColumnDefinition Width="260"/>
                                     <ColumnDefinition Width="20"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout x:Name="test" Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="4">
