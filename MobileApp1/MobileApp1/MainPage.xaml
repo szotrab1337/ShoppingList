@@ -12,10 +12,6 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <Grid VerticalOptions="EndAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="45"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="285"/>
                 <ColumnDefinition Width="Auto"/>
