@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp1.Android", "MobileApp1\MobileApp1.Android\MobileApp1.Android.csproj", "{957CE32A-14F8-48AF-8B19-1555642181BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp1", "MobileApp1\MobileApp1\MobileApp1.csproj", "{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileApp1", "MobileApp1\MobileApp1\MobileApp1.csproj", "{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,15 +13,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{957CE32A-14F8-48AF-8B19-1555642181BB}.Debug|Any CPU.Deploy.0 = Release|Any CPU
 		{957CE32A-14F8-48AF-8B19-1555642181BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{957CE32A-14F8-48AF-8B19-1555642181BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{957CE32A-14F8-48AF-8B19-1555642181BB}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Debug|Any CPU.Deploy.0 = Release|Any CPU
 		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{682AAABA-871D-4B34-8EFC-67A7C1C8ADC6}.Release|Any CPU.Deploy.0 = Release|Any CPU

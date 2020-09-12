@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MobileApp1
 {
@@ -104,6 +106,79 @@ namespace MobileApp1
 
                     Application.Current.MainPage = new NavigationPage(new MainPage());
                 }
+            }
+        }
+        public async void ShareClicked(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlNode rootNode = xmlDoc.CreateElement("items");
+            xmlDoc.AppendChild(rootNode);
+
+            var AllItems = await App.Database.GetItemsAsync();
+
+            foreach (var item in AllItems)
+            {
+                XmlNode itemNode = xmlDoc.CreateElement("item");
+                XmlNode nameNode = xmlDoc.CreateElement("name");
+                XmlNode quantityNode = xmlDoc.CreateElement("quantity");
+
+                nameNode.InnerText = item.Name;
+                quantityNode.InnerText = item.Quantity.ToString();
+
+                itemNode.AppendChild(nameNode);
+                itemNode.AppendChild(quantityNode);
+
+                rootNode.AppendChild(itemNode);
+            }
+
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = xmlDoc.OuterXml,
+                Title = "Udostępniona lista zakupów"
+            });
+        }
+
+        public async void LoadSharedListClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string Name = "";
+                string Quantity = "";
+
+                string listXml = await Clipboard.GetTextAsync();
+
+                XmlDocument xmlList = new XmlDocument();
+                xmlList.LoadXml(listXml);
+
+                foreach (XmlNode node in xmlList)
+                {
+                    foreach (XmlNode childNode in node.ChildNodes)
+                    {
+                        foreach (XmlNode lastChild in childNode.ChildNodes)
+                        {
+                            if (lastChild.Name == "name")
+                                Name = lastChild.InnerText;
+
+                            if (lastChild.Name == "quantity")
+                                Quantity = lastChild.InnerText;
+                        }
+                        var AllItems = await App.Database.GetItemsAsync();
+                        int inx = AllItems.Count;
+
+                        await App.Database.SaveItemsAsync(new Item
+                        {
+                            Number = inx + 1,
+                            Name = Name,
+                            IsChecked = false,
+                            Quantity = Convert.ToDouble(Quantity)
+                        });
+                    }
+                }
+                Application.Current.MainPage = new NavigationPage(new MainPage());
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Błąd", "Nie znaleziono poprawnej listy w schowku.\r\n\r\n" + ex.ToString(), "OK");
             }
         }
     }
